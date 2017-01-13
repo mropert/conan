@@ -24,7 +24,7 @@ class ConanFileToolsTest(ConanFile):
         self.output.warn("Building...")
     '''
         prev_settings = """
-os: [Windows, Linux, Macos, Android, FreeBSD]
+os: [Windows, Linux, Macos, Android, FreeBSD, SunOS]
 arch: [x86, x86_64, armv6, armv7, armv7hf, armv8]
 compiler:
     gcc:
@@ -39,6 +39,9 @@ compiler:
     apple-clang:
         version: ["5.0", "5.1", "6.0", "6.1", "7.0", "7.1", "7.2", "7.3"]
         libcxx: [libstdc++, libc++]
+    sunstudio:
+        version: ["5.10", "5.11", "5.12", "5.13", "5.14"]
+        libcxx: [libCstd, libstlport, libstdc++]
 
 """
         files = {"conanfile.py": file_content}

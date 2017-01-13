@@ -11,7 +11,7 @@ from collections import OrderedDict
 
 MIN_SERVER_COMPATIBLE_VERSION = '0.12.0'
 
-default_settings_yml = """os: [Windows, Linux, Macos, Android, iOS, FreeBSD]
+default_settings_yml = """os: [Windows, Linux, Macos, Android, iOS, FreeBSD, SunOS]
 arch: [x86, x86_64, ppc64le, ppc64, armv6, armv7, armv7hf, armv8]
 compiler:
     gcc:
@@ -28,6 +28,9 @@ compiler:
     apple-clang:
         version: ["5.0", "5.1", "6.0", "6.1", "7.0", "7.3", "8.0"]
         libcxx: [libstdc++, libc++]
+    sunstudio:
+        version: ["5.10", "5.11", "5.12", "5.13", "5.14"]
+        libcxx: [libCstd, libstlport, libstdc++]
 
 build_type: [None, Debug, Release]
 """

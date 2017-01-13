@@ -65,6 +65,9 @@ class CMake(object):
         if operating_system == "FreeBSD":
             if compiler in ["gcc", "clang", "apple-clang"]:
                 return "Unix Makefiles"
+        if operating_system == "SunOS":
+            if compiler in ["sunstudio", "gcc", "clang"]:
+                return "Unix Makefiles"
 
         raise ConanException("Unknown cmake generator for these settings")
 
@@ -127,6 +130,10 @@ class CMake(object):
                               "-DCONAN_C_FLAGS=-m32"])
             elif op_system == "Macos":
                 flags.append("-DCMAKE_OSX_ARCHITECTURES=i386")
+        if arch == "x86_64" and op_system == "SunOS":
+            flags.extend(["-DCONAN_CXX_FLAGS=-m64",
+                          "-DCONAN_SHARED_LINKER_FLAGS=-m64",
+                          "-DCONAN_C_FLAGS=-m64"])
 
         try:
             libcxx = self._settings.compiler.libcxx

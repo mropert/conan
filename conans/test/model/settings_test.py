@@ -58,7 +58,7 @@ class SettingsTest(unittest.TestCase):
         self.assertEqual(self.sut.os, "Linux")
 
     def loads_default_test(self):
-        settings = Settings.loads("""os: [Windows, Linux, Macos, Android, FreeBSD]
+        settings = Settings.loads("""os: [Windows, Linux, Macos, Android, FreeBSD, SunOS]
 arch: [x86, x86_64, arm]
 compiler:
     gcc:
